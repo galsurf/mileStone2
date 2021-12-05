@@ -51,6 +51,7 @@ public static final double CORRELATION_THRESHOLD =  0.9;
 
 	@Override
 	public List<AnomalyReport> detect(TimeSeries ts) {
+		int timeStep = 0;
 		for(CorrelatedFeatures c:this.correlatedFeaturesList){
 			float[] floatArray1 = new float[ts.columns.get(c.feature1).size()];
 			 floatArray1 = ts.stringToFloat(ts.columns.get(c.feature1));
@@ -64,9 +65,10 @@ public static final double CORRELATION_THRESHOLD =  0.9;
 			float tempTresHold;
 			for(int n=0; n < myPoints.length ; n++){
 				tempTresHold = StatLib.dev(myPoints[n] , myPoints);
+				timeStep++;
 				if(tempTresHold > c.threshold){
 					AnomalyReport tempReport = new AnomalyReport(c.feature1+ "-" +
-							c.feature2, 4  );
+							c.feature2, timeStep );
 					anomalyReports.add(tempReport);
 				}
 			}
