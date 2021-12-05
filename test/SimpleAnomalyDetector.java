@@ -80,7 +80,3 @@ public static final double CORRELATION_THRESHOLD =  0.9;
 		return correlatedFeaturesList;
 	}
 }
-//if (ts.columnNames.get(i).equals(this.correlatedFeaturesList.get(i).feature1)) {
-//for(int j = i+1 ; j < ts.columnNames.size() ; j ++) {
-//	if(ts.columnNames.get(j).equals(this.getNormalModel().get(j).feature2)) {
-//	Point temp = new Point((float)ts.columns.get(ts.columnNames.get(i)), (float)ts.columns.get(j) )
